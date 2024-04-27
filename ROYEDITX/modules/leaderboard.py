@@ -18,7 +18,25 @@ import json
 import html
 import re
 
-    
+#####
+
+AVISHA = [
+"https://graph.org/file/eaa3a2602e43844a488a5.jpg",
+"https://graph.org/file/b129e98b6e5c4db81c15f.jpg",
+"https://graph.org/file/3ccb86d7d62e8ee0a2e8b.jpg",
+"https://graph.org/file/df11d8257613418142063.jpg",
+"https://graph.org/file/9e23720fedc47259b6195.jpg",
+"https://graph.org/file/826485f2d7db6f09db8ed.jpg",
+"https://graph.org/file/ff3ad786da825b5205691.jpg",
+"https://graph.org/file/52713c9fe9253ae668f13.jpg",
+"https://graph.org/file/8f8516c86677a8c91bfb1.jpg",
+"https://graph.org/file/6603c3740378d3f7187da.jpg",
+"https://graph.org/file/66cb6ec40eea5c4670118.jpg",
+"https://graph.org/file/2e3cf4327b169b981055e.jpg",
+]
+
+####
+
 async def global_leaderboard(update: Update, context: CallbackContext) -> None:
     
     cursor = top_global_groups_collection.aggregate([
@@ -28,7 +46,7 @@ async def global_leaderboard(update: Update, context: CallbackContext) -> None:
     ])
     leaderboard_data = await cursor.to_list(length=10)
 
-    leaderboard_message = "<b>✦ ᴛᴏᴘ 10 ɢʟᴏʙᴀʟ ɢʀᴏᴜᴘs ✦</b>\n\n"
+    leaderboard_message = "<b>❖ ᴛᴏᴘ 10 ɢʟᴏʙᴀʟ ɢʀᴏᴜᴘs ❖</b>\n\n"
 
     for i, group in enumerate(leaderboard_data, start=1):
         group_name = html.escape(group.get('group_name', 'Unknown'))
@@ -36,7 +54,7 @@ async def global_leaderboard(update: Update, context: CallbackContext) -> None:
         if len(group_name) > 10:
             group_name = group_name[:15] + '...'
         count = group['count']
-        leaderboard_message += f'{i}. <b>{group_name}</b> ➾ <b>{count}</b>\n'
+        leaderboard_message += f'{i}. <b>{group_name}</b> ➥ <b>{count}</b>\n'
     
     
     photo_url = random.choice(AVISHA)
@@ -54,7 +72,7 @@ async def ctop(update: Update, context: CallbackContext) -> None:
     ])
     leaderboard_data = await cursor.to_list(length=10)
 
-    leaderboard_message = "<b>✦ ᴛᴏᴘ 10 ᴜsᴇʀs ᴡɪᴛʜ ᴍᴏsᴛ ᴄʜᴀʀᴀᴄᴛᴇʀsɪɴ ᴛʜɪs ɢʀᴏᴜᴘ.</b>\n\n"
+    leaderboard_message = "<b>❖ ᴛᴏᴘ 10 ᴜsᴇʀs ᴡɪᴛʜ ᴍᴏsᴛ ᴄʜᴀʀᴀᴄᴛᴇʀsɪɴ ᴛʜɪs ɢʀᴏᴜᴘ.</b>\n\n"
 
     for i, user in enumerate(leaderboard_data, start=1):
         username = user.get('username', 'Unknown')
@@ -63,7 +81,7 @@ async def ctop(update: Update, context: CallbackContext) -> None:
         if len(first_name) > 10:
             first_name = first_name[:15] + '...'
         character_count = user['character_count']
-        leaderboard_message += f'{i}. <a href="https://t.me/{username}"><b>{first_name}</b></a> ➾ <b>{character_count}</b>\n'
+        leaderboard_message += f'{i}. <a href="https://t.me/{username}"><b>{first_name}</b></a> ➥ <b>{character_count}</b>\n'
     
     photo_url = random.choice(AVISHA)
 
@@ -79,7 +97,7 @@ async def leaderboard(update: Update, context: CallbackContext) -> None:
     ])
     leaderboard_data = await cursor.to_list(length=10)
 
-    leaderboard_message = "<b>✦ ᴛᴏᴘ 10 ᴜsᴇʀs ᴡɪᴛʜ ᴍᴏsᴛ ᴄʜᴀʀᴀᴄᴛᴇʀs ✦</b>\n\n"
+    leaderboard_message = "<b>❖ ᴛᴏᴘ 10 ᴜsᴇʀs ᴡɪᴛʜ ᴍᴏsᴛ ᴄʜᴀʀᴀᴄᴛᴇʀs ❖</b>\n\n"
 
     for i, user in enumerate(leaderboard_data, start=1):
         username = user.get('username', 'Unknown')
@@ -88,7 +106,7 @@ async def leaderboard(update: Update, context: CallbackContext) -> None:
         if len(first_name) > 10:
             first_name = first_name[:15] + '...'
         character_count = user['character_count']
-        leaderboard_message += f'{i}. <a href="https://t.me/{username}"><b>{first_name}</b></a> ➾ <b>{character_count}</b>\n'
+        leaderboard_message += f'{i}. <a href="https://t.me/{username}"><b>{first_name}</b></a> ➥ <b>{character_count}</b>\n'
     
     photo_url = random.choice(AVISHA)
 
@@ -100,7 +118,7 @@ async def broadcast(update: Update, context: CallbackContext) -> None:
     if str(update.effective_user.id) == OWNER_ID:
         
         if update.message.reply_to_message is None:
-            await update.message.reply_text('✦ ᴘʟᴇᴀsᴇ ʀᴇᴘʟʏ ᴛᴏ ᴀ ᴍᴇssᴀɢᴇ ᴛᴏ ʙʀᴏᴀᴅᴄᴀsᴛ.')
+            await update.message.reply_text('❖ ᴘʟᴇᴀsᴇ ʀᴇᴘʟʏ ᴛᴏ ᴀ ᴍᴇssᴀɢᴇ ᴛᴏ ʙʀᴏᴀᴅᴄᴀsᴛ.')
             return
 
         
@@ -132,16 +150,16 @@ async def broadcast(update: Update, context: CallbackContext) -> None:
         
         await context.bot.send_message(
             chat_id=update.effective_chat.id,
-            text=f'✦ ʙʀᴏᴀᴅᴄᴀsᴛ ʀᴇᴘᴏʀᴛ ✦\n\n✦ ᴛᴏᴛᴀʟ ᴍᴇssᴀɢᴇ sᴇɴᴛ sᴜᴄᴄᴇssғᴜʟʟʏ - {total_sent}\n✦ ᴛᴏᴛᴀʟ ғᴀɪʟᴇᴅ ᴍᴇssᴀɢᴇ ᴛᴏ sᴇɴᴅ - {total_failed}'
+            text=f'❖ ʙʀᴏᴀᴅᴄᴀsᴛ ʀᴇᴘᴏʀᴛ ❖\n\n● ᴛᴏᴛᴀʟ ᴍᴇssᴀɢᴇ sᴇɴᴛ sᴜᴄᴄᴇssғᴜʟʟʏ ➥ {total_sent}\n● ᴛᴏᴛᴀʟ ғᴀɪʟᴇᴅ ᴍᴇssᴀɢᴇ ᴛᴏ sᴇɴᴅ ➥ {total_failed}'
         )
     else:
-        await update.message.reply_text('✦ ᴏɴʟʏ ᴍᴜʀᴀᴛ ᴄᴀɴ ᴜsᴇ...')
+        await update.message.reply_text('❖ ᴏɴʟʏ ᴍᴜʀᴀᴛ ᴄᴀɴ ᴜsᴇ...')
 
 
 async def stats(update: Update, context: CallbackContext) -> None:
     
     if str(update.effective_user.id) not in OWNER_ID:
-        update.message.reply_text('✦ ᴏɴʟʏ ғᴏʀ sᴜᴅᴏ ᴜsᴇʀs...')
+        update.message.reply_text('❖ ᴏɴʟʏ ғᴏʀ sᴜᴅᴏ ᴜsᴇʀs...')
         return
 
     
@@ -151,14 +169,14 @@ async def stats(update: Update, context: CallbackContext) -> None:
     group_count = await group_user_totals_collection.distinct('group_id')
 
 
-    await update.message.reply_text(f'✦ ᴛᴏᴛᴀʟ ᴜsᴇʀs - {user_count}\n✦ ᴛᴏᴛᴀʟ ɢʀᴏᴜᴘs - {len(group_count)}')
+    await update.message.reply_text(f'● ᴛᴏᴛᴀʟ ᴜsᴇʀs ➥ {user_count}\n● ᴛᴏᴛᴀʟ ɢʀᴏᴜᴘs ➥ {len(group_count)}')
 
 
 
 
 async def send_users_document(update: Update, context: CallbackContext) -> None:
     if str(update.effective_user.id) not in SUDO_USERS:
-        update.message.reply_text('✦ ᴏɴʟʏ ғᴏʀ sᴜᴅᴏ ᴜsᴇʀs...')
+        update.message.reply_text('❖ ᴏɴʟʏ ғᴏʀ sᴜᴅᴏ ᴜsᴇʀs...')
         return
     cursor = user_collection.find({})
     users = []
@@ -166,7 +184,7 @@ async def send_users_document(update: Update, context: CallbackContext) -> None:
         users.append(document)
     user_list = ""
     for user in users:
-        user_list += f"{user['first_name']}\n"
+        user_list += f"❖ {user['first_name']}\n"
     with open('users.txt', 'w') as f:
         f.write(user_list)
     with open('users.txt', 'rb') as f:
@@ -175,7 +193,7 @@ async def send_users_document(update: Update, context: CallbackContext) -> None:
 
 async def send_groups_document(update: Update, context: CallbackContext) -> None:
     if str(update.effective_user.id) not in SUDO_USERS:
-        update.message.reply_text('✦ ᴏɴʟʏ ғᴏʀ sᴜᴅᴏ ᴜsᴇʀs...')
+        update.message.reply_text('❖ ᴏɴʟʏ ғᴏʀ sᴜᴅᴏ ᴜsᴇʀs...')
         return
     cursor = top_global_groups_collection.find({})
     groups = []
@@ -183,7 +201,7 @@ async def send_groups_document(update: Update, context: CallbackContext) -> None
         groups.append(document)
     group_list = ""
     for group in groups:
-        group_list += f"✦ {group['group_name']}\n"
+        group_list += f"❖ {group['group_name']}\n"
         group_list += "\n"
     with open('groups.txt', 'w') as f:
         f.write(group_list)
