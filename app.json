@@ -36,7 +36,7 @@
       "SUDO_USERS": {
          "description": "Set your best friends id as sudo.",
          "required": true,
-         "value": "" 
+         "value": "6922271843" 
       },
       "BOT_USERNAME": {
          "description": "Enter your bot username.",
