@@ -50,11 +50,11 @@ API_ID = os.getenv("API_ID", None)
 UPDATE_CHAT = os.getenv("UPDATE_CHAT", None)
 
 application = Application.builder().token(BOT_TOKEN).build()
-shivuu = Client(
+ROY = Client(
     "lmao",
     api_id=API_ID,
     api_hash=API_HASH,
-    bot_token=TOKEN,
+    bot_token=BOT_TOKEN,
     
     
 )
