@@ -26,6 +26,9 @@ SUDO_USERS = os.getenv("SUDO_USERS", None).split()
 LOGGER_ID = os.getenv("LOGGER_ID", None)
 
 ### ❖ ➥
+BOT_USERNAME = os.getenv("BOT_USERNAME", None)
+
+### ❖ ➥
 BOT_TOKEN = os.getenv("BOT_TOKEN", None)
 
 ### ❖ ➥
