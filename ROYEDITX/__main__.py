@@ -19,9 +19,9 @@ import re
 import math
 import html
 from collections import Counter 
-from shivu import db, collection, top_global_groups_collection, group_user_totals_collection, user_collection, user_totals_collection
-from shivu import application, shivuu, LOGGER 
-from shivu.modules import ALL_MODULES
+from ROYEDITX import db, collection, top_global_groups_collection, group_user_totals_collection, user_collection, user_totals_collection
+from ROYEDITX import application, ROY, LOGGER 
+from ROYEDITX.modules import ALL_MODULES
 
 
 locks = {}
@@ -34,7 +34,7 @@ message_counts = {}
 
 
 for module_name in ALL_MODULES:
-    imported_module = importlib.import_module("shivu.modules." + module_name)
+    imported_module = importlib.import_module("ROYEDITX.modules." + module_name)
 
 
 last_user = {}
@@ -253,7 +253,7 @@ def main() -> None:
     application.run_polling(drop_pending_updates=True)
     
 if __name__ == "__main__":
-    shivuu.start()
+    ROY.start()
     main()
     
 
