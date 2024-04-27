@@ -38,6 +38,11 @@
          "required": true,
          "value": "" 
       },
+      "BOT_USERNAME": {
+         "description": "Enter your bot username.",
+         "required": true,
+         "value": "" 
+      },
       "SUPPORT_CHAT": {
          "description": "your bots support chat name without @ or chat id.",
          "required": true,
