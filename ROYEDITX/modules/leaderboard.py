@@ -12,7 +12,7 @@ import urllib.request
 from ROYEDITX import application 
 from ROYEDITX import db, collection, user_totals_collection, user_collection, top_global_groups_collection, top_global_groups_collection, group_user_totals_collection
 from ROYEDITX import IMG_URL, OWNER_ID
-from ROYEDITX import sudo_users as SUDO_USERS 
+from ROYEDITX import SUDO_USERS as SUDO_USERS 
 import random
 import json
 import html
