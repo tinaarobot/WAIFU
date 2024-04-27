@@ -1,5 +1,5 @@
 {
-      "name": "Character Catcher",
+      "name": "WAIFU BOT",
       "description": "Character Husbando waifus Catcher Group Bot.",
       "logo":"https://telegra.ph/file/4933e829e0d1fcaf3fdc0.jpg",
       "keywords": [
@@ -22,13 +22,13 @@
       }
    ],
    "env": {
-      "TOKEN": {
+      "BOT_TOKEN": {
          "description": "Your bot token. Get one from @BotFather",
          "required": true,
          "value": ""
       },
       
-      "GROUP_ID": {
+      "LOGGER_ID": {
          "description": " Support Group's ID And Please Add ur Bot in That group.. with administrator rights",
          "required": true,
          "value": "-100"
@@ -36,12 +36,12 @@
       "SUDO_USERS": {
          "description": "Set your best friends id as sudo.",
          "required": true,
-         "value": "6149191605 6765826972" 
+         "value": "" 
       },
       "SUPPORT_CHAT": {
          "description": "your bots support chat name without @ or chat id.",
          "required": true,
-         "value": "lmao" 
+         "value": "THE_FRIENDZ" 
       },
       
       "OWNER_ID": {
@@ -54,7 +54,7 @@
          "required": true,
          "value": ""
       },
-      "PHOTO_URL": {
+      "IMG_URL": {
          "description": "image Urls.. For start.. Harem.. and top.. etc commands",
          "required": true,
          "value": ""
@@ -70,7 +70,7 @@
          "required": true,
          "value": "" 
       },
-      "CHARA_CHANNEL_ID": {
+      "CHANNEL_ID": {
          "description": "Your Channel Id.. Where bot will Send.. all Ur Uploaded characters with details",
          "required": true,
          "value": "" 
