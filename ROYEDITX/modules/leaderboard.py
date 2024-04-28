@@ -169,7 +169,7 @@ async def stats(update: Update, context: CallbackContext) -> None:
     group_count = await group_user_totals_collection.distinct('group_id')
 
 
-    await update.message.reply_text(f'❖ ᴍʏ ᴀɴɪᴍᴇ ʙᴏᴛ sᴛᴀᴛs ⏤͟͟͞͞★\n\n● ᴛᴏᴛᴀʟ ᴜsᴇʀs ➥ {user_count}\n● ᴛᴏᴛᴀʟ ɢʀᴏᴜᴘs ➥ {len(group_count)}\n\n❖ ᴘᴏᴡᴇʀᴇᴅ ʙʏ ➥ [『ɴʏᴋᴀᴀ』x³『ᴀɴɪᴍᴇ』♡゙](https://t.me/the_friendz)')
+    await update.message.reply_text(f'❖ ᴍʏ ᴀɴɪᴍᴇ ʙᴏᴛ sᴛᴀᴛs ⏤͟͟͞͞★\n\n● ᴛᴏᴛᴀʟ ᴜsᴇʀs ➥ {user_count}\n● ᴛᴏᴛᴀʟ ɢʀᴏᴜᴘs ➥ {len(group_count)}\n\n❖ ᴘᴏᴡᴇʀᴇᴅ ʙʏ ➥ 『ɴʏᴋᴀᴀ』x³『ᴀɴɪᴍᴇ』♡゙')
 
 
 
