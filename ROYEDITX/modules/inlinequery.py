@@ -52,7 +52,7 @@ async def inlinequery(update: Update, context: CallbackContext) -> None:
         else:
             await update.inline_query.answer([InlineQueryResultArticle(
                 id='notfound', 
-                title="User not found", 
+                title="⬤ ᴜsᴇʀ ɴᴏᴛ ғᴏᴜɴᴅ.", 
                 input_message_content=InputTextMessageContent("❖ ᴜsᴇʀ ɴᴏᴛ ғᴏᴜɴᴅ...")
             )], cache_time=5)
 
