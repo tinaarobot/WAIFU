@@ -20,9 +20,9 @@ async def harem(update: Update, context: CallbackContext, page=0) -> None:
     user = await user_collection.find_one({'id': user_id})
     if not user:
         if update.message:
-            await update.message.reply_text('You have not guessed any characters yet.')
+            await update.message.reply_text('❖ ʏᴏᴜ ʜᴀᴠᴇ ɴᴏᴛ ɢᴜssᴇᴅ ᴍʏ ᴄʜᴀʀᴀᴄᴛᴇʀ.')
         else:
-            await update.callback_query.edit_message_text('You have not guessed any characters yet.')
+            await update.callback_query.edit_message_text('❖ ʏᴏᴜ ʜᴀᴠᴇ ɴᴏᴛ ɢᴜssᴇᴅ ᴍʏ ᴄʜᴀʀᴀᴄᴛᴇʀ.')
         return
 
     characters = sorted(user['characters'], key=lambda x: (x['anime'], x['id']))
@@ -39,7 +39,7 @@ async def harem(update: Update, context: CallbackContext, page=0) -> None:
     if page < 0 or page >= total_pages:
         page = 0  
 
-    harem_message = f"<b>{update.effective_user.first_name}'s Harem - Page {page+1}/{total_pages}</b>\n"
+    harem_message = f"❖ <b>{update.effective_user.first_name}'s ʜᴀʀᴇᴍ ᴘᴀɢᴇ {page+1}/{total_pages}</b>\n"
 
     
     current_characters = unique_characters[page*15:(page+1)*15]
@@ -48,7 +48,7 @@ async def harem(update: Update, context: CallbackContext, page=0) -> None:
     current_grouped_characters = {k: list(v) for k, v in groupby(current_characters, key=lambda x: x['anime'])}
 
     for anime, characters in current_grouped_characters.items():
-        harem_message += f'\n🏖️ <b>{anime} {len(characters)}/{await collection.count_documents({"anime": anime})}</b>\n'
+        harem_message += f'\n❖ <b>{anime} {len(characters)}/{await collection.count_documents({"anime": anime})}</b>\n'
 
         for character in characters:
             
@@ -58,16 +58,16 @@ async def harem(update: Update, context: CallbackContext, page=0) -> None:
          
     total_count = len(user['characters'])
     
-    keyboard = [[InlineKeyboardButton(f"See All Characters ({total_count})", switch_inline_query_current_chat=str(user_id))]]
+    keyboard = [[InlineKeyboardButton(f"sᴇᴇ ᴀʟʟ ᴄʜᴀʀᴀᴄᴛᴇʀs ({total_count})", switch_inline_query_current_chat=str(user_id))]]
 
     
     if total_pages > 1:
         
         nav_buttons = []
         if page > 0:
-            nav_buttons.append(InlineKeyboardButton("⬅️", callback_data=f"harem:{page-1}:{user_id}"))
+            nav_buttons.append(InlineKeyboardButton("◀", callback_data=f"harem:{page-1}:{user_id}"))
         if page < total_pages - 1:
-            nav_buttons.append(InlineKeyboardButton("➡️", callback_data=f"harem:{page+1}:{user_id}"))
+            nav_buttons.append(InlineKeyboardButton("▶", callback_data=f"harem:{page+1}:{user_id}"))
         keyboard.append(nav_buttons)
 
     reply_markup = InlineKeyboardMarkup(keyboard)
@@ -113,7 +113,7 @@ async def harem(update: Update, context: CallbackContext, page=0) -> None:
                         await update.callback_query.edit_message_text(harem_message, parse_mode='HTML', reply_markup=reply_markup)
         else:
             if update.message:
-                await update.message.reply_text("Your list is empty.")
+                await update.message.reply_text("⬤ ʏᴏᴜʀ ʟɪsᴛ ɪs sᴏ ᴇᴍᴘᴛʏ.")
 
 
 async def harem_callback(update: Update, context: CallbackContext) -> None:
@@ -129,7 +129,7 @@ async def harem_callback(update: Update, context: CallbackContext) -> None:
 
     
     if query.from_user.id != user_id:
-        await query.answer("✦ ᴅᴏɴ'ᴛ sᴛᴀʟᴋ ᴏᴛʜᴇʀ ᴜsᴇʀ's ʜᴀʀᴇᴍ.", show_alert=True)
+        await query.answer("⬤ ᴅᴏɴ'ᴛ sᴛᴀʟᴋ ᴏᴛʜᴇʀ ᴜsᴇʀ's ʜᴀʀᴇᴍ.", show_alert=True)
         return
 
     
