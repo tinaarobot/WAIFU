@@ -206,7 +206,7 @@ async def guess(update: Update, context: CallbackContext) -> None:
             })
 
 
-        await update.message.reply_text(f'❖ <b><a href="tg://user?id={user_id}">{update.effective_user.first_name}</a></b> ʏᴏᴜ ɢᴏᴛ ɴᴇᴡ ᴄʜᴀʀᴀᴄᴛᴇʀ.\n\n● ᴄʜᴀʀᴀᴄᴛᴇʀ ɴᴀᴍᴇ ➥ <b>{last_characters[chat_id]["name"]}</b> \n● ᴀɴɪᴍᴇ ɴᴀᴍᴇ ➥ <b>{last_characters[chat_id]["anime"]}</b> \n● ʀᴀɪʀᴛʏ ➥ <b>{last_characters[chat_id]["rarity"]}</b>\n\n❖ ᴛʜɪs ᴄʜᴀʀᴀᴄᴛᴇʀ ʜᴀs ʙᴇᴇɴ ᴀᴅᴅᴇᴅ ᴛᴏ ʏᴏᴜʀ ʜᴀʀᴇᴍ ɴᴏᴡ , ᴅᴏ - /collection ᴛᴏ ᴄʜᴇᴄᴋ ʏᴏᴜʀ ɴᴇᴡ ᴄʜᴀʀᴀᴄᴛᴇʀ.', parse_mode='HTML')
+        await update.message.reply_text(f'❖ <b><a href="tg://user?id={user_id}">{update.effective_user.first_name}</a></b> ʏᴏᴜ ɢᴏᴛ ɴᴇᴡ ᴄʜᴀʀᴀᴄᴛᴇʀ.\n\n● ᴄʜᴀʀᴀᴄᴛᴇʀ ɴᴀᴍᴇ ➥ <b>{last_characters[chat_id]["name"]}</b> \n● ᴀɴɪᴍᴇ ɴᴀᴍᴇ ➥ <b>{last_characters[chat_id]["anime"]}</b> \n● ʀᴀɪʀᴛʏ ➥ <b>{last_characters[chat_id]["rarity"]}</b>\n\n❖ ᴛʜɪs ᴄʜᴀʀᴀᴄᴛᴇʀ ʜᴀs ʙᴇᴇɴ ᴀᴅᴅᴇᴅ ᴛᴏ ʏᴏᴜʀ ʜᴀʀᴇᴍ ɴᴏᴡ ,ᴛᴏ ᴅᴏ ➥ /collection ᴛᴏ ᴄʜᴇᴄᴋ ʏᴏᴜʀ ɴᴇᴡ ᴄʜᴀʀᴀᴄᴛᴇʀ.', parse_mode='HTML')
 
     else:
         await update.message.reply_text('❖ ɪɴᴄᴏʀʀᴇᴄᴛ ɴᴀᴍᴇ, ʙᴀʙʏ...❌️')
