@@ -42,7 +42,7 @@ async def upload(update: Update, context: CallbackContext) -> None:
             await update.message.reply_text('❖ ɪɴᴠᴀʟɪᴅ ᴜʀʟ...')
             return
 
-        rarity_map = {1: "ᴄᴏᴍᴍᴏɴ ❤️, 2: "ʀᴀʀᴇ 💛", 3: "ʟᴇɢᴇɴᴅᴀʀʏ 💙", 4: "ᴍᴇᴅɪᴜᴍ 💚"}
+        rarity_map = {1: "💚ᴄᴏᴍᴍᴏɴ", 2: "💙 ʀᴀʀᴇ", 3: "❤️ ʟᴇɢᴇɴᴅᴀʀʏ", 4: "💛 ᴍᴇᴅɪᴜᴍ"}
         try:
             rarity = rarity_map[int(args[3])]
         except KeyError:
