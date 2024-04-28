@@ -37,7 +37,7 @@ async def change_time(update: Update, context: CallbackContext) -> None:
 
         await update.message.reply_text(f'❖ sᴜᴄᴄᴇssғᴜʟʟʏ ᴄʜᴀɴɢᴇᴅ ᴄʜᴀʀᴀᴄᴛᴇʀ ᴀᴘᴘᴇᴀʀᴀɴᴄᴇ ғʀᴇǫᴜᴇɴᴄʏ ᴛᴏ ᴇᴠᴇʀʏ {new_frequency} ᴍᴇssᴀɢᴇ.')
     except Exception as e:
-        await update.message.reply_text('❖ ғᴀɪʟᴇᴅ ᴛᴏ ᴄʜᴀɴɢᴇ ᴄʜᴀʀᴀᴄᴛᴇʀ ᴀᴘᴘᴇᴀʀᴀɴᴄᴇ ғʀᴇǫᴜᴇɴᴄʏ.')
+        await update.message.reply_text("❖ ғᴀɪʟᴇᴅ ᴛᴏ ᴄʜᴀɴɢᴇ ᴄʜᴀʀᴀᴄᴛᴇʀ ᴀᴘᴘᴇᴀʀᴀɴᴄᴇ ғʀᴇǫᴜᴇɴᴄʏ.")
 
 
 application.add_handler(CommandHandler("changetime", change_time, block=False))
