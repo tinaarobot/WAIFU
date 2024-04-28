@@ -116,7 +116,7 @@ async def send_image(update: Update, context: CallbackContext) -> None:
     await context.bot.send_photo(
         chat_id=chat_id,
         photo=character['img_url'],
-        caption="""⬤ ᴀ ɴᴇᴡ ᴄʜᴀʀᴀᴄᴛᴇʀ ʜᴀs ᴊᴜsᴛ ᴀᴘᴘᴇᴀʀᴇᴅ ᴜsᴇ ➥ /guess [ɴᴀᴍᴇ] ᴀɴᴅ ᴀᴅᴅ ᴛʜɪs ᴄʜᴀʀᴀᴄᴛᴇʀ ɪɴ ʏᴏᴜʀ ᴄᴏʟʟᴇᴄᴛɪᴏɴ.\n\n❖ ᴘᴏᴡᴇʀᴅ ʙʏ ➥ [『ɴʏᴋᴀᴀ』﹤/3 『ᴀɴɪᴍᴇ』ᥫᩣ](https://t.me/the_friendz)""",
+        caption="""⬤ ᴀ ɴᴇᴡ ᴄʜᴀʀᴀᴄᴛᴇʀ ʜᴀs ᴊᴜsᴛ ᴀᴘᴘᴇᴀʀᴇᴅ ᴜsᴇ ➥ /guess [ɴᴀᴍᴇ] ᴀɴᴅ ᴀᴅᴅ ᴛʜɪs ᴄʜᴀʀᴀᴄᴛᴇʀ ɪɴ ʏᴏᴜʀ ᴄᴏʟʟᴇᴄᴛɪᴏɴ.\n\n❖ ᴘᴏᴡᴇʀᴅ ʙʏ ➥ 『ɴʏᴋᴀᴀ』x³『ᴀɴɪᴍᴇ』♡゙""",
         parse_mode='Markdown')
     
 async def guess(update: Update, context: CallbackContext) -> None:
