@@ -30,7 +30,7 @@ async def upload(update: Update, context: CallbackContext) -> None:
     try:
         args = context.args
         if len(args) != 4:
-            await update.message.reply_text('Incorrect format... Please use: /upload img_url Character-Name Anime-Name Rarity')
+            await update.message.reply_text('✦ ɪɴᴄᴏʀʀᴇᴄᴛ ғᴏʀᴍᴀᴛᴇ, ᴘʟᴇᴀsᴇ ᴜsᴇ - /upload ɪᴍɢ_ᴜʀʟ, ᴄʜᴀʀᴀᴄᴛᴇʀ-ɴᴀᴍᴇ, ᴀɴɪᴍᴇ-ɴᴀᴍᴇ, ʀᴀʀɪᴛʏ')
             return
 
         character_name = args[1].replace('-', ' ').title()
