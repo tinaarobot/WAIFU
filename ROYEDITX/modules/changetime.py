@@ -12,7 +12,7 @@ async def change_time(update: Update, context: CallbackContext) -> None:
     member = await chat.get_member(user.id)
 
     if member.status not in ('administrator', 'creator'):
-        await update.message.reply_text('❖ ʏᴏᴜ ᴅᴏ ɴᴏᴛ ʜᴀᴠᴇ ʀɪɢʜᴛsᴛᴏ ᴜsᴇ ᴛʜɪs ᴄᴍᴅs.')
+        await update.message.reply_text('❖ ʏᴏᴜ ᴅᴏ ɴᴏᴛ ʜᴀᴠᴇ ʀɪɢʜᴛs ᴛᴏ ᴜsᴇ ᴛʜɪs ᴄᴍᴅs.')
         return
     try:
         
