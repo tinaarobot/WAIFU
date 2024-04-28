@@ -20,17 +20,17 @@ async def trade(client, message):
     sender_id = message.from_user.id
 
     if not message.reply_to_message:
-        await message.reply_text("You need to reply to a user's message to trade a character!")
+        await message.reply_text("❖ ʏᴏᴜ ɴᴇᴇᴅ ᴛᴏ ʀᴇᴘʟʏ ᴛᴏ ᴀ ᴜsᴇʀ's ᴍᴇssᴀɢᴇ ᴛᴏ ᴛʀᴀᴅᴇ ᴀ ᴄʜᴀʀᴀᴄᴛᴇʀ.")
         return
 
     receiver_id = message.reply_to_message.from_user.id
 
     if sender_id == receiver_id:
-        await message.reply_text("You can't trade a character with yourself!")
+        await message.reply_text("❖ ʏᴏᴜ ᴄᴀɴ'ᴛ ᴛʀᴀᴅᴇ ᴀ ᴄʜᴀʀᴀᴄᴛᴇʀ ᴡɪᴛʜ ʏᴏᴜʀsᴇʟғ.")
         return
 
     if len(message.command) != 3:
-        await message.reply_text("You need to provide two character IDs!")
+        await message.reply_text("❖ ʏᴏᴜ ɴᴇᴇᴅ ᴛᴏ ᴘʀᴏᴠɪᴅᴇ ᴛᴡᴏ ᴄʜᴀʀᴀᴄᴛᴇʀ ɪᴅ,s.")
         return
 
     sender_character_id, receiver_character_id = message.command[1], message.command[2]
@@ -42,11 +42,11 @@ async def trade(client, message):
     receiver_character = next((character for character in receiver['characters'] if character['id'] == receiver_character_id), None)
 
     if not sender_character:
-        await message.reply_text("You don't have the character you're trying to trade!")
+        await message.reply_text("❖ ʏᴏᴜ ᴅᴏɴ'ᴛ ʜᴀᴠᴇ ᴛʜᴇ ᴄʜᴀʀᴀᴄᴛᴇʀ ʏᴏᴜ'ʀᴇ ᴛʀʏɪɴɢ ᴛᴏ ᴛʀᴀᴅᴇ.")
         return
 
     if not receiver_character:
-        await message.reply_text("The other user doesn't have the character they're trying to trade!")
+        await message.reply_text("❖ ᴛʜᴇ ᴏᴛʜᴇʀ ᴜsᴇʀ ᴅᴏᴇsɴ'ᴛ ʜᴀᴠᴇ ᴛʜᴇ ᴄʜᴀʀᴀᴄᴛᴇʀ, ᴛʜᴇʏ ᴀʀᴇ ᴛʀʏɪɴɢ ᴛᴏ ᴛʀᴀᴅᴇ.")
         return
 
     # Rest of your code...
@@ -55,7 +55,7 @@ async def trade(client, message):
 
 
     if len(message.command) != 3:
-        await message.reply_text("/trade [Your Character ID] [Other User Character ID]!")
+        await message.reply_text("❖  ➥ /trade [ʏᴏᴜʀ ᴄʜᴀʀᴀᴄᴛᴇʀ ɪᴅ] [ᴏᴛʜᴇʀ ᴜsᴇʀ ᴄʜᴀʀᴀᴄᴛᴇʀ ɪᴅ]")
         return
 
     sender_character_id, receiver_character_id = message.command[1], message.command[2]
@@ -66,12 +66,12 @@ async def trade(client, message):
     # Create a confirmation button
     keyboard = InlineKeyboardMarkup(
         [
-            [InlineKeyboardButton("Confirm Trade", callback_data="confirm_trade")],
-            [InlineKeyboardButton("Cancel Trade", callback_data="cancel_trade")]
+            [InlineKeyboardButton("ᴄᴏɴғɪʀᴍ ᴛʀᴀᴅᴇ", callback_data="confirm_trade")],
+            [InlineKeyboardButton("ᴄᴀɴᴄᴇʟ ᴛʀᴀᴅᴇ", callback_data="cancel_trade")]
         ]
     )
 
-    await message.reply_text(f"{message.reply_to_message.from_user.mention}, do you accept this trade?", reply_markup=keyboard)
+    await message.reply_text(f"❖ {message.reply_to_message.from_user.mention}, ᴅᴏ ʏᴏᴜ ᴀᴄᴄᴇᴘᴛ ᴛʜɪs ᴛʀᴀᴅᴇ ?", reply_markup=keyboard)
 
 
 @ROY.on_callback_query(filters.create(lambda _, __, query: query.data in ["confirm_trade", "cancel_trade"]))
@@ -83,7 +83,7 @@ async def on_callback_query(client, callback_query):
         if _receiver_id == receiver_id:
             break
     else:
-        await callback_query.answer("This is not for you!", show_alert=True)
+        await callback_query.answer("❖ ᴛʜɪs ɪs ɴᴏᴛ ғᴏʀ ʏᴏᴜ.", show_alert=True)
         return
 
     if callback_query.data == "confirm_trade":
@@ -113,13 +113,13 @@ async def on_callback_query(client, callback_query):
         # Remove the trade offer from the pending trades
         del pending_trades[(sender_id, receiver_id)]
 
-        await callback_query.message.edit_text(f"You have successfully traded your character with {callback_query.message.reply_to_message.from_user.mention}!")
+        await callback_query.message.edit_text(f"❖ ʏᴏᴜ ʜᴀᴠᴇ sᴜᴄᴄᴇssғᴜʟʟʏ ᴛʀᴀᴅᴇ ʏᴏᴜʀ ᴄʜᴀʀᴀᴄᴛᴇʀ ᴡɪᴛʜ ➥ {callback_query.message.reply_to_message.from_user.mention} !")
 
     elif callback_query.data == "cancel_trade":
         # Remove the trade offer from the pending trades
         del pending_trades[(sender_id, receiver_id)]
 
-        await callback_query.message.edit_text("❌️ Sad Cancelled....")
+        await callback_query.message.edit_text("❌️ ᴄᴀɴᴄᴇʟʟᴇᴅ...")
 
 
 
@@ -132,7 +132,7 @@ async def gift(client, message):
     sender_id = message.from_user.id
 
     if not message.reply_to_message:
-        await message.reply_text("You need to reply to a user's message to gift a character!")
+        await message.reply_text("❖ ʏᴏᴜ ɴᴇᴇᴅ ᴛᴏ ʀᴇᴘʟʏ ᴀ ᴜsᴇʀs's ᴍᴇssᴀɢᴇ ᴛᴏ ɢɪғᴛ ᴀ ᴄʜᴀʀᴀᴄᴛᴇʀ.")
         return
 
     receiver_id = message.reply_to_message.from_user.id
@@ -140,11 +140,11 @@ async def gift(client, message):
     receiver_first_name = message.reply_to_message.from_user.first_name
 
     if sender_id == receiver_id:
-        await message.reply_text("You can't gift a character to yourself!")
+        await message.reply_text("❖ ʏᴏᴜ ᴄᴀɴ'ᴛ ɢɪғᴛ ᴀ ᴄʜᴀʀᴀᴄᴛᴇʀ ᴛᴏ ʏᴏᴜʀsᴇʟғ.")
         return
 
     if len(message.command) != 2:
-        await message.reply_text("You need to provide a character ID!")
+        await message.reply_text("❖ ʏᴏᴜ ɴᴇᴇᴅ ᴛᴏ ᴘʀᴏᴠɪᴅᴇ ᴀ ᴄʜᴀʀᴀᴄᴛᴇʀ ɪᴅ.")
         return
 
     character_id = message.command[1]
@@ -154,7 +154,7 @@ async def gift(client, message):
     character = next((character for character in sender['characters'] if character['id'] == character_id), None)
 
     if not character:
-        await message.reply_text("You don't have this character in your collection!")
+        await message.reply_text("❖ ʏᴏᴜ ᴅᴏɴ'ᴛ ʜᴀᴠᴇ ᴛʜɪs ᴄʜᴀʀᴀᴄᴛᴇʀ ɪɴ ʏᴏᴜʀ ᴄᴏʟʟᴇᴄᴛɪᴏɴ.")
         return
 
     # Add the gift offer to the pending gifts
@@ -167,12 +167,12 @@ async def gift(client, message):
     # Create a confirmation button
     keyboard = InlineKeyboardMarkup(
         [
-            [InlineKeyboardButton("Confirm Gift", callback_data="confirm_gift")],
-            [InlineKeyboardButton("Cancel Gift", callback_data="cancel_gift")]
+            [InlineKeyboardButton("ᴄᴏɴғɪʀᴍ ɢɪғᴛ", callback_data="confirm_gift")],
+            [InlineKeyboardButton("ᴄᴀɴᴄᴇʟ ɢɪғᴛ", callback_data="cancel_gift")]
         ]
     )
 
-    await message.reply_text(f"do You Really Wanns To Gift {message.reply_to_message.from_user.mention}?", reply_markup=keyboard)
+    await message.reply_text(f"❖ ᴅᴏ ʏᴏᴜ ʀᴇᴀʟʟʏ ᴡᴀɴɴᴀ ᴛᴏ ɢɪғᴛ ➥ {message.reply_to_message.from_user.mention}?", reply_markup=keyboard)
 
 @ROY.on_callback_query(filters.create(lambda _, __, query: query.data in ["confirm_gift", "cancel_gift"]))
 async def on_callback_query(client, callback_query):
@@ -183,7 +183,7 @@ async def on_callback_query(client, callback_query):
         if _sender_id == sender_id:
             break
     else:
-        await callback_query.answer("This is not for you!", show_alert=True)
+        await callback_query.answer("❖ ᴛʜɪs ɪs ɴᴏᴛ ғᴏʀ ʏᴏᴜ.", show_alert=True)
         return
 
     if callback_query.data == "confirm_gift":
@@ -210,6 +210,6 @@ async def on_callback_query(client, callback_query):
         # Remove the gift offer from the pending gifts
         del pending_gifts[(sender_id, receiver_id)]
 
-        await callback_query.message.edit_text(f"You have successfully gifted your character to [{gift['receiver_first_name']}](tg://user?id={receiver_id})!")
+        await callback_query.message.edit_text(f"❖ ʏᴏᴜ ʜᴀᴠᴇ sᴜᴄᴄᴇssғᴜʟʟʏ ɢɪғᴛᴇᴅ ʏᴏᴜʀ ᴄʜᴀʀᴀᴄᴛᴇʀ ᴛᴏ ➥ [{gift['receiver_first_name']}](tg://user?id={receiver_id})")
 
 
