@@ -12,7 +12,7 @@
          "husbando"
       ],   
    "repository": "https://github.com/tinaarobot/WAIFU",
-   "stack": "heroku-22",
+   "stack": "heroku-24",
    "addons": [
       {
          "options": {
